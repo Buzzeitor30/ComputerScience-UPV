@@ -1,0 +1,274 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11210,        266]
+NotebookOptionsPosition[     10025,        235]
+NotebookOutlinePosition[     10427,        251]
+CellTagsIndexPosition[     10384,        248]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Pr\[AAcute]ctica 3 - Elias Urios Alacreu
+\[LineSeparator]\
+\>", "Title",
+ CellChangeTimes->{{3.8310120526308966`*^9, 
+  3.8310120743227644`*^9}},ExpressionUUID->"980a1824-cd67-4370-931c-\
+95e59c4b1453"],
+
+Cell[CellGroupData[{
+
+Cell["1) ", "Section",
+ CellChangeTimes->{{3.8310120822437162`*^9, 
+  3.8310120990148535`*^9}},ExpressionUUID->"f48fd11b-c937-416b-a0e2-\
+f3240fd0ebc9"],
+
+Cell[TextData[{
+ "a) El conjunto calculado para este sistema P es el de los naturales, dado \
+que le puede llegar una cadena compuesto \[UAcute]nicamente por el objeto  ",
+ StyleBox["d",
+  FontWeight->"Bold"],
+ " y por tanto se eliminan al aplicar las reglas, le puede llegar una cadena \
+compuesta por un n\[UAcute]mero arbitrario de letras ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ " o ",
+ StyleBox["e",
+  FontWeight->"Bold"],
+ " que conforman el conjunto de naturales. Dicho de otra forma: a la membrana \
+de salida las cadenas obtenidas siempre se obtiene una cadena compuesta \
+\[UAcute]nicamente o por ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ "\[CloseCurlyQuote]s o por ",
+ StyleBox["e",
+  FontWeight->"Bold"],
+ "\[CloseCurlyQuote]s o por ninguna. Por tanto, el conjunto de naturales son \
+los n\[UAcute]meros naturales \n\nb) Las cadenas de salida que pueden \
+aparecer en la membrana de salida pueden tratarse o bien de ninguna \
+(aplicamos la regla que nos saca de la membrana 1, y por tanto nunca le llega \
+nada) o podemos aplicar la segunda regla varias veces y que entren una cadena \
+de longitud 6 ( 2 b\[CloseCurlyQuote]s y 4c\[CloseCurlyQuote]s). Por tanto, \
+vemos que el conjunto de naturales que se calcula para este sistema P se \
+trata de todos los naturales m\[UAcute]ltiplos del 6 (considerando que 0 \
+pertenece a los naturales)."
+}], "Subsection",
+ CellChangeTimes->{{3.8310120951180077`*^9, 3.831012148596818*^9}, {
+  3.831012204623082*^9, 3.8310122241761503`*^9}, {3.831012409086666*^9, 
+  3.8310125136784935`*^9}, {3.8310126768965645`*^9, 3.8310126971789875`*^9}, {
+  3.8310128911696987`*^9, 3.8310130608524933`*^9}, {3.8311025492970715`*^9, 
+  3.831102555706195*^9}, {3.831102637041594*^9, 
+  3.831102645928693*^9}},ExpressionUUID->"c569dd47-9c38-4e25-a71c-\
+49d556338551"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2)", "Section",
+ CellChangeTimes->{{3.8310131186947193`*^9, 
+  3.8310131266402397`*^9}},ExpressionUUID->"fb394666-2401-4031-8f65-\
+d254329cc631"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Cuando el n\[UAcute]mero de a y c es 0 (es decir, n = 0 y k = 0), entonces se \
+disuelve la membrana 2 y la membrana 1 obtiene una d, que proporciona  \
+\[OpenCurlyDoubleQuote]s\[CloseCurlyDoubleQuote] a la membrana 3. Si tenemos \
+que n MOD k > 0, entonces siempre tendremos al menos una c\[CloseCurlyQuote] \
+y una c, por lo que en este caso  generamos n en la membrana 3 y obtenemos la \
+salida\
+\>", "Subsection",
+ CellChangeTimes->{{3.8310131676445827`*^9, 3.8310132002528095`*^9}, {
+   3.8310133371883783`*^9, 3.8310133646637325`*^9}, {3.831025420686618*^9, 
+   3.8310254417751102`*^9}, {3.8310255892157044`*^9, 3.831025627878632*^9}, 
+   3.831027784381209*^9, 
+   3.8311026706117277`*^9},ExpressionUUID->"36136e93-8edd-493f-b755-\
+af297ba33b5d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Salidas", "[", "n_", "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"configs", ",", "aux", ",", "cont"}], "}"}], ",", "\n", "\t", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"*", "Inicial"}], ",", " ", 
+      RowBox[{
+       RowBox[{"por", " ", "si", " ", "n"}], "=", " ", "0"}]}], " ", "**)"}], 
+    "\n", "\t", 
+    RowBox[{
+     RowBox[{"configs", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"a", ",", "a"}], "}"}], ",", 
+        RowBox[{"{", "}"}]}], "}"}]}], ";", "\n", "\t", 
+     RowBox[{"aux", " ", "=", " ", "n"}], ";", "\n", "\t", 
+     RowBox[{"(*", 
+      RowBox[{
+      "*", "Mientras", " ", "que", " ", "queden", " ", "transiciones", " ", 
+       "y", " ", "haya", " ", "un", " ", "objeto", " ", "en", " ", "la", " ", 
+       "membrana", " ", "1"}], " ", "**)"}], "\n", "\t", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"aux", " ", ">", " ", "0"}], " ", "&&", " ", 
+        RowBox[{
+         RowBox[{"configs", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], " ", "\[NotEqual]", " ", 
+         RowBox[{"{", "}"}]}]}], ",", "\n", "\t\t", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "*", "Escogemos", " ", "regla", " ", "de", " ", "forma", " ", 
+          "autom\[AAcute]tica"}], ",", " ", 
+         RowBox[{"o", " ", "la", " ", "1", " ", "o", " ", "la", " ", "2"}]}], 
+        " ", "**)"}], "\n", "\t\t", 
+       RowBox[{
+        RowBox[{"cont", " ", "=", " ", 
+         RowBox[{"RandomInteger", "[", "]"}]}], ";", "\n", "\t\t", 
+        RowBox[{"(*", 
+         RowBox[{
+         "*", "Si", " ", "escogemos", " ", "la", " ", "segunda", " ", "regla",
+           " ", "a\[NTilde]adimos", " ", "a", " ", "la", " ", "membrana", " ",
+           "2", " ", "el", " ", "objeto", " ", "bbccc"}], "**)"}], "\n", 
+        "\t\t", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"cont", " ", ">", " ", "0"}], ",", "\n", "\t\t\t", 
+          RowBox[{
+           RowBox[{"configs", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], " ", "=", " ", 
+           RowBox[{"Join", "[", 
+            RowBox[{
+             RowBox[{"configs", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"b", ",", "b", ",", "c", ",", "c", ",", "c"}], "}"}]}], 
+            "]"}]}], ",", "\n", "\t\t\t", 
+          RowBox[{"(*", 
+           RowBox[{
+           "*", "Si", " ", "no", " ", "la", " ", "membrana", " ", "1", " ", 
+            "no", " ", "tiene", " ", "objetos", " ", "y", " ", "la", " ", 
+            "computacion", " ", "termina"}], "***)"}], "\n", "\t\t\t", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"configs", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], " ", "=", " ", 
+            RowBox[{"{", "}"}]}], ";"}]}], "\n", "\t\t", "]"}], ";", "\n", 
+        "\t\t", 
+        RowBox[{"aux", "--"}], ";"}]}], "\n", "\t", "]"}], ";", "\n", "\t", 
+     RowBox[{"Return", "[", "configs", "]"}], ";"}]}], "\n", "]"}]}]], "Code",
+ CellChangeTimes->{{3.831025687756843*^9, 3.831025734476666*^9}, {
+   3.8310274503943124`*^9, 3.8310276750332627`*^9}, {3.8310277334647765`*^9, 
+   3.83102785389072*^9}, {3.8310279661315823`*^9, 3.8310280415706944`*^9}, {
+   3.831028092652995*^9, 3.8310281487009*^9}, {3.8310281879111843`*^9, 
+   3.8310282148260536`*^9}, {3.8310283549726725`*^9, 3.831028372851454*^9}, {
+   3.8310284720976906`*^9, 3.8310285057484503`*^9}, {3.831028538486845*^9, 
+   3.8310285523525405`*^9}, {3.831028771420499*^9, 3.8310287836750093`*^9}, {
+   3.831028848561984*^9, 3.831028848732545*^9}, {3.8310290109940414`*^9, 
+   3.8310290710492735`*^9}, {3.8310292380538335`*^9, 3.831029259676463*^9}, {
+   3.831029480595748*^9, 3.8310295681378603`*^9}, {3.8310296255126*^9, 
+   3.831029654455168*^9}, {3.8310298513584642`*^9, 3.83102989921238*^9}, {
+   3.831029942039668*^9, 3.831030059669354*^9}, {3.831030090475*^9, 
+   3.831030095452617*^9}, {3.8310304175643263`*^9, 3.8310304217898464`*^9}, {
+   3.831030473028149*^9, 3.831030563634262*^9}, {3.8310305989892435`*^9, 
+   3.831030643017975*^9}, 3.831030683805995*^9, {3.831030718408225*^9, 
+   3.8310307424613175`*^9}, {3.8310307963037868`*^9, 
+   3.8310308302621646`*^9}, {3.8310311609624944`*^9, 
+   3.8310312381454334`*^9}, {3.8310312978115244`*^9, 3.831031415995759*^9}, {
+   3.8310314492604685`*^9, 3.83103147090749*^9}, {3.83103159139534*^9, 
+   3.8310316793979635`*^9}, {3.831101705263309*^9, 3.831101873351864*^9}, {
+   3.8311019171930003`*^9, 3.831102023207344*^9}, {3.831102071539321*^9, 
+   3.8311020858026686`*^9}, {3.8311021956664915`*^9, 3.8311023344991693`*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"1e11ae5e-e962-414e-a865-b2d0a6c30244"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Salidas", "[", "3", "]"}], "\n", "\n"}]], "Code",
+ CellChangeTimes->{{3.8310277910185676`*^9, 3.8310277935371933`*^9}, {
+   3.8310288165016704`*^9, 3.8310288392403173`*^9}, {3.8310291183551207`*^9, 
+   3.831029177948845*^9}, 3.8310292666465263`*^9, {3.8310305709561386`*^9, 
+   3.8310305955161486`*^9}, {3.83103064503622*^9, 3.8310306489447155`*^9}, {
+   3.831030745997607*^9, 3.831030746114851*^9}, {3.831031376255868*^9, 
+   3.8310313775050144`*^9}, {3.8310316395871005`*^9, 3.831031639717098*^9}, {
+   3.831031682685351*^9, 3.8310316826903553`*^9}, {3.831031790088526*^9, 
+   3.8310317942000303`*^9}, {3.8311020979768295`*^9, 3.831102109628892*^9}, {
+   3.8311021813296165`*^9, 3.831102193011007*^9}, {3.8311022296124773`*^9, 
+   3.8311022391201186`*^9}, {3.831102337357865*^9, 3.8311023406642694`*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"2fdb7392-49a6-4c82-9b39-07c2d977adbe"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"a", ",", "a"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "b", ",", "b", ",", "c", ",", "c", ",", "c", ",", "b", ",", "b", ",", "c",
+      ",", "c", ",", "c", ",", "b", ",", "b", ",", "c", ",", "c", ",", "c"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.8311023378318458`*^9, 3.831102344583613*^9}, 
+   3.831102676485729*^9},
+ CellLabel->"Out[63]=",ExpressionUUID->"3163a355-0fa4-4b32-bc6b-d6bb37db8813"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1904, 981},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 para Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"307bb948-80a2-4508-9fa7-44d8b3a4b1c6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 212, 6, 216, "Title",ExpressionUUID->"980a1824-cd67-4370-931c-95e59c4b1453"],
+Cell[CellGroupData[{
+Cell[817, 32, 152, 3, 67, "Section",ExpressionUUID->"f48fd11b-c937-416b-a0e2-f3240fd0ebc9"],
+Cell[972, 37, 1803, 36, 209, "Subsection",ExpressionUUID->"c569dd47-9c38-4e25-a71c-49d556338551"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2812, 78, 151, 3, 67, "Section",ExpressionUUID->"fb394666-2401-4031-8f65-d254329cc631"],
+Cell[CellGroupData[{
+Cell[2988, 85, 762, 13, 79, "Subsection",ExpressionUUID->"36136e93-8edd-493f-b755-af297ba33b5d"],
+Cell[3753, 100, 4782, 98, 357, "Code",ExpressionUUID->"1e11ae5e-e962-414e-a865-b2d0a6c30244"],
+Cell[CellGroupData[{
+Cell[8560, 202, 920, 13, 87, "Code",ExpressionUUID->"2fdb7392-49a6-4c82-9b39-07c2d977adbe"],
+Cell[9483, 217, 490, 12, 32, "Output",ExpressionUUID->"3163a355-0fa4-4b32-bc6b-d6bb37db8813"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
